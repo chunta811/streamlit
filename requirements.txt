@@ -1,0 +1,11 @@
+altair==4.1.0
+azure-cognitiveservices-vision-computervision==0.8.0
+beautifulsoup4
+google==3.0.0
+google-api-python-client==2.3.0
+google-cloud-texttospeech==2.3.0
+gspread==3.7.0
+gspread-dataframe==3.2.1
+pandas
+streamlit==0.80.0
+yfinance==0.1.59
