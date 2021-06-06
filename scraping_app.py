@@ -2,6 +2,7 @@ import altair as alt
 from bs4 import BeautifulSoup
 from google.oauth2.service_account import Credentials
 import gspread
+import os
 import pandas as pd
 import requests
 import streamlit as st
@@ -34,7 +35,7 @@ def get_worksheet():
         'https://www.googleapis.com/auth/drive'
     ]
     credentials = Credentials.from_service_account_file(
-        'gspread_credential.json',
+        os.environ['STREAMLIT_SCRAPING'],
         scopes=scopes
     )
     gc = gspread.authorize(credentials)
