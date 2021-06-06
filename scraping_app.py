@@ -8,6 +8,9 @@ import requests
 import streamlit as st
 
 
+CREDENTIAL = os.environ['STREAMLIT_SCRAPING']
+
+
 def get_df_ec():
     url_ec = 'https://scraping.official.ec/'
     res = requests.get(url_ec)
@@ -35,7 +38,7 @@ def get_worksheet():
         'https://www.googleapis.com/auth/drive'
     ]
     credentials = Credentials.from_service_account_file(
-        os.environ['STREAMLIT_SCRAPING'],
+        CREDENTIAL,
         scopes=scopes
     )
     gc = gspread.authorize(credentials)
