@@ -1,7 +1,8 @@
 import altair as alt
 from bs4 import BeautifulSoup
-from google.oauth2.service_account import Credentials
+# from google.oauth2.service_account import Credentials
 import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 import os
 import pandas as pd
 import requests
@@ -46,8 +47,8 @@ def get_worksheet():
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
         "client_x509_cert_url": os.environ['ST_SCRAPING_CLIENT_X509_CERT_URL']
     }
-    credentials = Credentials.from_json_keyfile_dict(
-        credentials=_credentials,
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(
+        keyfile_dict=_credentials,
         scopes=scopes
     )
     gc = gspread.authorize(credentials)
